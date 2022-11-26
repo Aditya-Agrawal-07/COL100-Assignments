@@ -3,10 +3,6 @@ start_time = datetime.now()
 from typing import Tuple, List
 
 def input_sudoku() -> List[List[int]]:
-	"""Function to take input a sudoku from stdin and return
-	it as a list of lists.
-	Each row of sudoku is one line.
-	"""
 	sudoku= list()
 	for _ in range(9):
 		row = list(map(int, input().rstrip(" ").split(" ")))
@@ -14,19 +10,12 @@ def input_sudoku() -> List[List[int]]:
 	return sudoku
 
 def print_sudoku(sudoku:List[List[int]]) -> None:
-	"""Helper function to print sudoku to stdout
-	Each row of sudoku in one line.
-	"""
 	for i in range(9):
 		for j in range(9):
 			print(sudoku[i][j], end = " ")
 		print()
 
 def get_block_num(sudoku:List[List[int]], pos:Tuple[int, int]) -> int:
-	"""This function takes a parameter position and returns
-	the block number of the block which contains the position.
-	"""
-	# your code goes here
 	row=pos[0]-1
 	column=pos[1]-1
 	row-=row%3
@@ -35,10 +24,6 @@ def get_block_num(sudoku:List[List[int]], pos:Tuple[int, int]) -> int:
 	return int(num)
 
 def get_position_inside_block(sudoku:List[List[int]], pos:Tuple[int, int]) -> int:
-	"""This function takes parameter position
-	and returns the index of the position inside the corresponding block.
-	"""
-	# your code goes here
 	d=0
 	c=0
 	a=(pos[0]-1)%3
@@ -58,11 +43,6 @@ def get_position_inside_block(sudoku:List[List[int]], pos:Tuple[int, int]) -> in
 
 
 def get_block(sudoku:List[List[int]], x: int) -> List[int]:
-	"""This function takes an integer argument x and then
-	returns the x^th block of the Sudoku. Note that block indexing is
-	from 1 to 9 and not 0-8.
-	"""
-	# your code goes here
 	l=[]
 	a=b=d=0
 	for r in range(0,7,3):
